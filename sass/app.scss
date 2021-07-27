@@ -1,0 +1,168 @@
+@import 'bootstrap';
+
+@mixin transition($delay, $function) {
+  transition: all $delay $function;
+}
+
+body {
+  background-color: rgba(135, 135, 145, 0.329);
+  font-size: 14px;
+}
+
+.main-container {
+  height: 80vh;
+  //   background-color: blue;{
+  .container {
+    ul {
+      box-shadow: 1px 1px 10px 2px rgba(0, 0, 255, 0.315);
+
+      i {
+        // margin: 8px 16px 0;
+        font-size: 20px;
+        z-index: 999;
+
+        &:hover {
+          color: $primary;
+        }
+      }
+
+      span {
+        color: $primary;
+        position: absolute;
+        top: 5px;
+        right: 0;
+        padding: 0 20px;
+        font-size: 20px;
+      }
+
+      .add-taskInput {
+        .input-add {
+          width: 100%;
+          border: none;
+          font-style: italic;
+          color: rgba(128, 128, 128, 0.842);
+
+          &:focus {
+            outline: none;
+          }
+        }
+
+        i {
+          font-size: 20px;
+          color: rgba(128, 128, 128, 0.842);
+        }
+
+        &:hover {
+          background-color: #fff;
+          cursor: pointer;
+        }
+      }
+
+      .title {
+        position: relative;
+
+        i {
+          position: absolute;
+          top: 10px;
+          right: 20px;
+          color: rgba(128, 128, 128, 0.842);
+          font-size: 18px;
+
+          &:hover {
+            color: rgba(0, 0, 0, 0.945);
+          }
+        }
+      }
+
+      .modify-task {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        left: 0;
+        border: 1px solid rgba(0, 0, 255, 0.651);
+
+        input {
+          width: 100%;
+          border: none;
+          font-style: italic;
+          color: rgba(128, 128, 128, 0.842);
+          padding: 0 20px;
+
+          &:focus {
+            outline: none;
+          }
+        }
+
+        div {
+          padding: 0 16px 0;
+          z-index: 999;
+          background-color: white;
+          color: $primary;
+
+          span {
+            position: inherit;
+            margin-left: 8px;
+            padding: 0 !important;
+
+            &:nth-child(2) {
+              i {
+                color: $danger !important;
+              }
+            }
+          }
+        }
+
+        &:hover {
+          background-color: #fff;
+          cursor: pointer;
+        }
+      }
+
+      .clearMarked {
+        color: rgba(128, 128, 128, 0.842);
+        background-color: rgba(233, 233, 233, 0.863);
+        text-decoration: underline;
+      }
+
+      .ckeck-btn {
+        margin-right: 10px;
+      }
+
+      .done {
+        text-decoration: line-through;
+        color: rgba(128, 128, 128, 0.842);
+        background-color: rgba(233, 233, 233, 0.863);
+      }
+
+      li {
+        position: relative;
+
+        &:not(.add-taskInput):hover {
+          background: $primary;
+          color: #ffff;
+          cursor: pointer;
+
+          span:not(.save-text) {
+            i {
+              color: white;
+            }
+          }
+
+          @include transition(0.4s, ease);
+        }
+      }
+    }
+  }
+}
+
+.previousDrag {
+  transform: scale(1.5);
+}
+
+@media only screen and (max-width: 950px) {
+  .main-section {
+    width: 90% !important;
+  }
+}
